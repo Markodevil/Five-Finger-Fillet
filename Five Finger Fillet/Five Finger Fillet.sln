@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Five Finger Fillet", "Assembly-CSharp.csproj", "{5502DE3D-F3C0-3F4A-EC6A-BDA1FA43CD4B}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Five Finger Fillet", "Five Finger Fillet.csproj", "{9DE31578-57BE-D719-EDE0-B76A190C51EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5502DE3D-F3C0-3F4A-EC6A-BDA1FA43CD4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5502DE3D-F3C0-3F4A-EC6A-BDA1FA43CD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5502DE3D-F3C0-3F4A-EC6A-BDA1FA43CD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5502DE3D-F3C0-3F4A-EC6A-BDA1FA43CD4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DE31578-57BE-D719-EDE0-B76A190C51EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DE31578-57BE-D719-EDE0-B76A190C51EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DE31578-57BE-D719-EDE0-B76A190C51EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DE31578-57BE-D719-EDE0-B76A190C51EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
