@@ -297,6 +297,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\OBJExport\OBJExporter.cs" />
+    <Compile Include="Assets\Scripts\Fingers.cs" />
     <Compile Include="Assets\Scripts\Knife.cs" />
     <Compile Include="Assets\Scripts\LevelLoad.cs" />
     <Compile Include="Assets\Scripts\PlayerMitch.cs" />
