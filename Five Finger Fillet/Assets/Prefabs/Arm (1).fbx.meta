@@ -1,21 +1,43 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: b4cbf5d38f331334ca59424b269e16d8
-timeCreated: 1520221732
-=======
-guid: cfb6134aecd61264086e8b6c3f536fbe
-timeCreated: 1520221861
->>>>>>> e987f66a82e743615a47795981a4b5ad37be225f
+guid: 118e90bb76b25f7469a4918d0f984f86
+timeCreated: 1520227267
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Hand
+    100004: IndexFinger
+    100006: PinkyFinger
+    100008: PointFinger
+    100010: RingFinger
+    100012: ThumbFinger
     400000: //RootNode
+    400002: Hand
+    400004: IndexFinger
+    400006: PinkyFinger
+    400008: PointFinger
+    400010: RingFinger
+    400012: ThumbFinger
     2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Knife
+    2300000: Hand
+    2300002: IndexFinger
+    2300004: PinkyFinger
+    2300006: PointFinger
+    2300008: RingFinger
+    2300010: ThumbFinger
+    3300000: Hand
+    3300002: IndexFinger
+    3300004: PinkyFinger
+    3300006: PointFinger
+    3300008: RingFinger
+    3300010: ThumbFinger
+    4300000: IndexFinger
+    4300002: Hand
+    4300004: RingFinger
+    4300006: ThumbFinger
+    4300008: PointFinger
+    4300010: PinkyFinger
   externalObjects: {}
   materials:
     importMaterials: 1
