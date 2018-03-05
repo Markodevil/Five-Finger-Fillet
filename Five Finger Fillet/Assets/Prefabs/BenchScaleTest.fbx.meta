@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 8dcae3035f011d14d8cdd86f0502ab9a
-timeCreated: 1520289128
+guid: abbe1dc5e706b6241968a26f315604b2
+timeCreated: 1520290768
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Knife_MAT
+    2100000: lambert3
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Knife
+    4300000: pCube1
   externalObjects: {}
   materials:
     importMaterials: 1
