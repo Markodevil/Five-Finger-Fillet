@@ -51,9 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\Player - Mitch.cs" />
+     <None Include="Assets\Textures\DELETE.txt" />
      <None Include="Assets\Mesh\DELETE.txt" />
      <None Include="Assets\Materials\DELETE.txt" />
+     <None Include="Assets\Particles\DELETE.txt" />
+     <None Include="Assets\Sounds\DELETE.txt" />
+     <None Include="Assets\Animations\DELETE.txt" />
      <None Include="Assets\Prefabs\DELETE.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
