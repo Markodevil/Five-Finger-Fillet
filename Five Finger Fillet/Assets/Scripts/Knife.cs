@@ -6,6 +6,8 @@ public class Knife : MonoBehaviour
 {
     [HideInInspector]
     public bool bKnifeHitGround;
+    [HideInInspector]
+    public bool bResetPos;
 
     // Use this for initialization
     void Start()
@@ -22,8 +24,9 @@ public class Knife : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Ground")
-        {
             bKnifeHitGround = true;
-        }
+
+        if (col.gameObject.tag == "Roof")
+            bResetPos = true;
     }
 }
