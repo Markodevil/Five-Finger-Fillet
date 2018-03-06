@@ -307,7 +307,6 @@ public class Sets : MonoBehaviour
         {
             waitStateTimer = 0.0f;
             state = State.STATE_PLAY;
-            Debug.Log(waitStateTimer);
         }
    
     }
@@ -340,6 +339,7 @@ public class Sets : MonoBehaviour
         {
             playerOneHasFailedThisRound = false;
             playerTwoHasFailedThisRound = false;
+            Debug.Log("Round Over");
 
             currentFingureIndex = 0;
             currentRound++;
