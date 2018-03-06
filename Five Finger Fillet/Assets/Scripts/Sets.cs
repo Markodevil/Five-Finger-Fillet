@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Threading;
 using UnityEngine;
 
 public class Sets : MonoBehaviour
@@ -17,18 +18,35 @@ public class Sets : MonoBehaviour
     List<List<Fingers>> RoundRequiredFingers = new List<List<Fingers>>();
     List<List<Fingers>> FingerSets = new List<List<Fingers>>();
 
-    public float KeyPressTime = 1.0f;
     public int RoundsTotoal = 5;
 
     private int currentRound = 0;
-    private int currentKeypressIndex = 0;
-    private float keypressTimer = 0.0f;
+    private int currentFingureIndex = 0;
 
     private int playerOnePoints = 0;
     private int playerTwoPoints = 0;
 
-    private bool playerOneSucceds = true;
-    private bool playerTwoSucceds = true;
+
+
+    private bool playerOneSucceds = false;
+    private bool playerTwoSucceds = false;
+
+    private bool playerOneHasFailedThisRound = false;
+    private bool playerTwoHasFailedThisRound = false;
+
+
+    public float WaitStateTime = 1.0f;
+    private float waitStateTimer = 0.0f;
+    //private float keyPressTimer = 0.0f;
+
+    private enum State
+    {
+        STATE_WAIT,
+        STATE_PLAY,
+        STATE_END,
+    }
+
+    private State state;
 
 
 
@@ -44,6 +62,7 @@ public class Sets : MonoBehaviour
         // Set 13: r,e,q,w,t    Set 14: r,t,q,w,e     Set 15: t,q,w,e,r
         // Set 16: t,w,q,e,r    Set 17: t,e,q,w,r     Set 18: t,r,q,w,e
         // Set 19: t,r,e,w,q    Set 20: t,e,r,w,q
+
 
         //Set 1:
         FingerSets.Add(new List<Fingers>
@@ -216,7 +235,7 @@ public class Sets : MonoBehaviour
         });
 
         //Set18:
-        FingerSets.Add( new List<Fingers>
+        FingerSets.Add(new List<Fingers>
         {
             Fingers.Finger5,
             Fingers.Finger4,
@@ -251,67 +270,92 @@ public class Sets : MonoBehaviour
             RoundRequiredFingers.Add(set);
         }
     }
+
+  
     // Update is called once per frame
     void Update()
     {
-        keypressTimer += Time.deltaTime;
-        if (keypressTimer > KeyPressTime)
+        switch(state)
         {
-            keypressTimer = 0.0f;
-            if (currentRound <= RoundRequiredFingers.Count)
-            {
-                if (currentKeypressIndex < RoundRequiredFingers[currentRound].Count)
-                {
-                    Fingers currentFinger = RoundRequiredFingers[currentRound][currentKeypressIndex];
-                    print(currentFinger);
-                    bool playerOnePressed = GetKeyWasPressed(currentFinger, 1);
-                    bool playerTwoPressed = GetKeyWasPressed(currentFinger, 2);
-
-                    print(playerOnePoints);
-                    print(playerTwoPoints);
-
-                    //Resolve key
-                    if (playerOnePressed == true && playerTwoPressed == true)
-                    {
-                        if (playerOneSucceds == true)
-                            print(playerOnePoints++);
-
-                        if (playerTwoSucceds == true)
-                            print(playerTwoPoints++);
-                    }
-                    if (playerOnePressed == true && playerTwoPressed == false)
-                    {
-                        if (playerOneSucceds == true)
-                            print(playerOnePoints++);
-
-                        playerTwoSucceds = false;
-                    }
-                    if (playerTwoPressed == true && playerOnePressed == false)
-                    {
-                        if (playerTwoSucceds == true)
-                            print(playerTwoPoints++);
-
-                        playerOneSucceds = false;
-                    }
-                    if (playerOnePressed == false && playerTwoPressed == false)
-                    {
-                        playerOneSucceds = false;
-                        playerOneSucceds = false;
-                    }
-
-                    currentKeypressIndex++;
-                    if (currentKeypressIndex >= RoundRequiredFingers[currentRound].Count)
-                    {
-                        playerOneSucceds = true;
-                        playerTwoSucceds = true;
-                        currentKeypressIndex = 0;
-                        currentRound++;
-                        KeyPressTime *= 0.9f;
-                    }
-                }
-            }
+            case State.STATE_WAIT:
+                update_WaitState();
+                break;
+            case State.STATE_PLAY:
+                update_PlayState();
+                break;
         }
     }
+
+    void update_WaitState()
+    {
+        Fingers currentFinger = RoundRequiredFingers[currentRound][currentFingureIndex];
+        print(currentFinger);
+
+        if(playerOneSucceds == false)
+        {
+            playerOneSucceds = GetKeyWasPressed(currentFinger, 1);
+        }
+        if (playerTwoSucceds == false)
+        {
+            playerTwoSucceds = GetKeyWasPressed(currentFinger, 2);
+        }
+
+
+        //Transition
+        waitStateTimer += Time.deltaTime;
+        if(waitStateTimer > WaitStateTime)
+        {
+            waitStateTimer = 0.0f;
+            state = State.STATE_PLAY;
+            Debug.Log(waitStateTimer);
+        }
+   
+    }
+
+    void update_PlayState()
+    {
+        if (!playerOneHasFailedThisRound && playerOneSucceds == true)
+        {
+            print(playerOnePoints++);
+        }
+        else
+        {
+            playerOneHasFailedThisRound = true;
+        }
+
+        if (!playerTwoHasFailedThisRound && playerTwoSucceds == true)
+        {
+            print(playerTwoPoints++);
+        }
+        else
+        {
+            playerTwoHasFailedThisRound = true;
+        }
+
+        playerOneSucceds = false;
+        playerTwoSucceds = false;
+
+        currentFingureIndex++;
+        if (currentFingureIndex >= RoundRequiredFingers[currentRound].Count)
+        {
+            playerOneHasFailedThisRound = false;
+            playerTwoHasFailedThisRound = false;
+
+            currentFingureIndex = 0;
+            currentRound++;
+        }
+
+        //Transition
+        if (currentRound >= RoundRequiredFingers.Count)
+        {
+            state = State.STATE_END;
+        }
+        else
+        {
+            state = State.STATE_WAIT;
+        }
+    }
+
 
     private bool GetKeyWasPressed(Fingers currentFinger, int v)
     {
