@@ -14,6 +14,7 @@ public class Fingers : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezeAll;
+
     }
 
     // Update is called once per frame
