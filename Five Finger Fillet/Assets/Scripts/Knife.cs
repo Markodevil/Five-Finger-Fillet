@@ -24,7 +24,9 @@ public class Knife : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Ground")
+        {
             bKnifeHitGround = true;
+        }
 
         if (col.gameObject.tag == "Roof")
             bResetPos = true;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMitch : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerMitch : MonoBehaviour
     private Vector3[] knifeInitPos;
     private Knife[] scpKnife;
     public GameObject[] stabTarget;
+    public AudioManager audmanager;
 
     // Public vars for the designers
     public float fFallSpeed = 0;
@@ -16,6 +18,7 @@ public class PlayerMitch : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // initializing vector lengths
         knifeInitPos = new Vector3[5];
 
         for (int i = 0; i < rbKnife.Length; ++i)
@@ -67,28 +70,68 @@ public class PlayerMitch : MonoBehaviour
         var heading4 = stabTarget[3].transform.position - player4.transform.position;
         var heading5 = stabTarget[4].transform.position - player5.transform.position;
 
+        audmanager.audSoundSource.clip = audmanager.arrAudio[0];
+
         if (Input.GetKeyDown(KeyCode.A))
+        {
             rbKnife[0].AddForce(heading1 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
+
         if (Input.GetKeyDown(KeyCode.S))
+        {
             rbKnife[1].AddForce(heading2 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
+
         if (Input.GetKeyDown(KeyCode.D))
+        {
             rbKnife[2].AddForce(heading3 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
+
         if (Input.GetKeyDown(KeyCode.F))
+        {
             rbKnife[3].AddForce(heading4 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
+
         if (Input.GetKeyDown(KeyCode.G))
+        {
             rbKnife[4].AddForce(heading5 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
 
         if (Input.GetKeyDown(KeyCode.Z))
-            rbKnife[0].AddForce(heading1 * fFallSpeed, ForceMode.Impulse);
-        if (Input.GetKeyDown(KeyCode.X))
-            rbKnife[1].AddForce(heading2 * fFallSpeed, ForceMode.Impulse);
-        if (Input.GetKeyDown(KeyCode.C))
-            rbKnife[2].AddForce(heading3 * fFallSpeed, ForceMode.Impulse);
-        if (Input.GetKeyDown(KeyCode.V))
-            rbKnife[3].AddForce(heading4 * fFallSpeed, ForceMode.Impulse);
-        if (Input.GetKeyDown(KeyCode.B))
-            rbKnife[4].AddForce(heading5 * fFallSpeed, ForceMode.Impulse);
 
+        {
+            rbKnife[0].AddForce(heading1 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            rbKnife[1].AddForce(heading2 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            rbKnife[2].AddForce(heading3 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            rbKnife[3].AddForce(heading4 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            rbKnife[4].AddForce(heading5 * fFallSpeed, ForceMode.Impulse);
+            audmanager.audSoundSource.Play();
+        }
     }
 
     void knifeResolve()
@@ -103,6 +146,8 @@ public class PlayerMitch : MonoBehaviour
             if (scpKnife[i].bKnifeHitGround)
             {
                 rbKnife[i].AddForce(Vector3.up * fFallSpeed * 2, ForceMode.Impulse);
+                audmanager.audSoundSource.clip = audmanager.arrAudio[1];
+                audmanager.audSoundSource.Play();
                 scpKnife[i].bKnifeHitGround = false;
             }
         }
