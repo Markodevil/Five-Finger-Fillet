@@ -1,1 +1,4 @@
 Five Finger Fillet/Library/
+*/*.csproj
+*/*.suo
+*/.vs/
