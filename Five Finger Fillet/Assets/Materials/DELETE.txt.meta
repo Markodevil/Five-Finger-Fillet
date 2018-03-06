@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 0643f3308b690e544a5d4d48286eae5a
+timeCreated: 1520204934
+=======
 guid: e4f121296d797e841b87ac069e582f80
 timeCreated: 1520204956
+>>>>>>> Ryan'sBranch
 licenseType: Free
 TextScriptImporter:
   externalObjects: {}
