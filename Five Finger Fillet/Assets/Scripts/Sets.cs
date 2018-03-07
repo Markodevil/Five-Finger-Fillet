@@ -307,10 +307,7 @@ public class Sets : MonoBehaviour
         {
             waitStateTimer = 0.0f;
             state = State.STATE_PLAY;
-<<<<<<< HEAD
             Debug.Log(waitStateTimer);
-=======
->>>>>>> origin/Ryan'sBranch
         }
    
     }
@@ -343,10 +340,7 @@ public class Sets : MonoBehaviour
         {
             playerOneHasFailedThisRound = false;
             playerTwoHasFailedThisRound = false;
-<<<<<<< HEAD
-=======
             Debug.Log("Round Over");
->>>>>>> origin/Ryan'sBranch
 
             currentFingureIndex = 0;
             currentRound++;
@@ -363,10 +357,7 @@ public class Sets : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/Ryan'sBranch
     private bool GetKeyWasPressed(Fingers currentFinger, int v)
     {
         if (currentFinger == Fingers.Finger1)
