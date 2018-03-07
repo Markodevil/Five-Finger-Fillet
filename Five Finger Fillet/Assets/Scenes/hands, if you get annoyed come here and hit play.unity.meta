@@ -1,8 +1,13 @@
 fileFormatVersion: 2
-guid: 4b985f646425fc24fb4aaa6d90a23b37
-timeCreated: 1520292170
+<<<<<<< HEAD
+guid: 0643f3308b690e544a5d4d48286eae5a
+timeCreated: 1520204934
+=======
+guid: e4f121296d797e841b87ac069e582f80
+timeCreated: 1520204956
+>>>>>>> Ryan'sBranch
 licenseType: Free
-DefaultImporter:
+TextScriptImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 

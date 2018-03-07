@@ -1,4 +1,5 @@
 Five Finger Fillet/Library/
 */*.csproj
+Five Finger Fillet/Temp/
 */*.suo
 */.vs/
