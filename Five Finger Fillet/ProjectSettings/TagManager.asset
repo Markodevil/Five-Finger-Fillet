@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ground
   - nowayhose
+  - Q
+  - W
+  - E
+  - R
+  - T
   layers:
   - Default
   - TransparentFX
