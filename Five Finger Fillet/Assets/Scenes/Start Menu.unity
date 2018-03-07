@@ -2933,6 +2933,8 @@ MonoBehaviour:
   - {fileID: 835409119}
   - {fileID: 220529685}
   audmanager: {fileID: 584599777}
+  goParticle: []
+  particle: []
   fFallSpeed: 9
 --- !u!4 &502915747
 Transform:
@@ -11932,7 +11934,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1265915039}
-        m_MethodName: doquit
+        m_MethodName: quitgame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
