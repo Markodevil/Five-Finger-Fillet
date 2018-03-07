@@ -37,8 +37,8 @@ public class PlayerMitch : MonoBehaviour
     void Start()
     {
         // initializing vector lengths
-        knifeInitPos = new Vector3[5];
-        goKnife = new Knife[5];
+        knifeInitPos = new Vector3[10];
+        goKnife = new Knife[10];
 
         // saving the initial positions of each knife
         for (int i = 0; i < rbKnife.Length; ++i)
@@ -70,6 +70,7 @@ public class PlayerMitch : MonoBehaviour
     void knifeStabs()
     {
         // if player clicks the right key then it goes straight down missing the hand
+        // player 1
         if (Input.GetKeyDown(KeyCode.Q))
         {
             rbKnife[0].AddForce(-Vector3.up * fFallSpeed, ForceMode.Impulse);
@@ -105,25 +106,75 @@ public class PlayerMitch : MonoBehaviour
             bOnce1 = true;
         }
 
+        // player 2
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            rbKnife[5].AddForce(-Vector3.up * fFallSpeed, ForceMode.Impulse);
+            bPlayTableSound = true;
+            bOnce1 = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            rbKnife[6].AddForce(-Vector3.up * fFallSpeed, ForceMode.Impulse);
+            bPlayTableSound = true;
+            bOnce1 = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            rbKnife[7].AddForce(-Vector3.up * fFallSpeed, ForceMode.Impulse);
+            bPlayTableSound = true;
+            bOnce1 = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            rbKnife[8].AddForce(-Vector3.up * fFallSpeed, ForceMode.Impulse);
+            bPlayTableSound = true;
+            bOnce1 = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            rbKnife[9].AddForce(-Vector3.up * fFallSpeed, ForceMode.Impulse);
+            bPlayTableSound = true;
+            bOnce1 = true;
+        }
+
     }
 
     // the knifes stab the fingers, dismembering them
     void knifeFails()
     {
+        // player 1
         GameObject knife1 = GameObject.Find("Knife1");
         GameObject knife2 = GameObject.Find("Knife2");
         GameObject knife3 = GameObject.Find("Knife3");
         GameObject knife4 = GameObject.Find("Knife4");
         GameObject knife5 = GameObject.Find("Knife5");
+        // player 2
+        GameObject knife6 = GameObject.Find("Knife1");
+        GameObject knife7 = GameObject.Find("Knife2");
+        GameObject knife8 = GameObject.Find("Knife3");
+        GameObject knife9 = GameObject.Find("Knife4");
+        GameObject knife10 = GameObject.Find("Knife5");
 
         // Gets a vector that points from the knife's position to the target's.
+        // player 1
         var heading1 = stabTarget[0].transform.position - knife1.transform.position;
         var heading2 = stabTarget[1].transform.position - knife2.transform.position;
         var heading3 = stabTarget[2].transform.position - knife3.transform.position;
         var heading4 = stabTarget[3].transform.position - knife4.transform.position;
         var heading5 = stabTarget[4].transform.position - knife5.transform.position;
+        // player 2
+        var heading6 = stabTarget[5].transform.position - knife6.transform.position;
+        var heading7 = stabTarget[6].transform.position - knife7.transform.position;
+        var heading8 = stabTarget[7].transform.position - knife8.transform.position;
+        var heading9 = stabTarget[8].transform.position - knife9.transform.position;
+        var heading10 = stabTarget[9].transform.position - knife10.transform.position;
 
-
+        // player1
         if (Input.GetKeyDown(KeyCode.A))
         {
             rbKnife[0].AddForce(heading1 * fFallSpeed, ForceMode.Impulse);
@@ -206,6 +257,97 @@ public class PlayerMitch : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.B))
+        {
+            rbKnife[4].AddForce(heading5 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[4].Play();
+        }
+
+        // player 2
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            rbKnife[0].AddForce(heading1 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[0].Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            rbKnife[1].AddForce(heading2 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[1].Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            rbKnife[2].AddForce(heading3 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[2].Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            rbKnife[3].AddForce(heading4 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[3].Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Semicolon))
+        {
+            rbKnife[4].AddForce(heading5 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[4].Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            rbKnife[0].AddForce(heading1 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[0].Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            rbKnife[1].AddForce(heading2 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[2].Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            rbKnife[2].AddForce(heading3 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[3].Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Period))
+        {
+            rbKnife[3].AddForce(heading4 * fFallSpeed, ForceMode.Impulse);
+            // play stab sound
+            bPlayStabSound = true;
+            bOnce = true;
+            particle[4].Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Slash))
         {
             rbKnife[4].AddForce(heading5 * fFallSpeed, ForceMode.Impulse);
             // play stab sound
